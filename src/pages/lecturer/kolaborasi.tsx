@@ -29,6 +29,11 @@ const Kolaborasi: React.FC = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+<<<<<<< HEAD
+=======
+    // 🌟 State untuk toggle form
+    const [showForm, setShowForm] = useState(false);
+>>>>>>> cd61495 (sampai sini)
 
     const fetchCollaborations = useCallback(async () => {
         try {
@@ -79,6 +84,10 @@ const Kolaborasi: React.FC = () => {
             alert(response.data.message);
             setFormData({ judulProyek: '', deskripsiSingkat: '', pesan: '' });
             setSelectedStudent('');
+<<<<<<< HEAD
+=======
+            setShowForm(false); // ✅ Sembunyikan form setelah submit
+>>>>>>> cd61495 (sampai sini)
             fetchCollaborations(); 
         } catch (error: any) {
             console.error(error);
@@ -89,6 +98,7 @@ const Kolaborasi: React.FC = () => {
 
     return (
         <div className="bg-slate-100 min-h-screen p-4 sm:p-8 flex flex-col items-center gap-16 font-sans">
+<<<<<<< HEAD
             
             <div className="bg-white rounded-2xl shadow-xl w-full max-w-6xl overflow-hidden">
                 <div className="bg-gradient-to-r from-teal-500 to-cyan-600 p-8">
@@ -121,6 +131,64 @@ const Kolaborasi: React.FC = () => {
             </div>
             
            
+=======
+
+            {/* 🔘 Tombol untuk Tampilkan/Sembunyikan Form */}
+            <div className="w-full max-w-6xl flex justify-end mb-4">
+                {!showForm ? (
+                    <button
+                        onClick={() => setShowForm(true)}
+                        className="bg-teal-500 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-teal-600 transition"
+                    >
+                        + Ajukan Kolaborasi
+                    </button>
+                ) : (
+                    <button
+                        onClick={() => setShowForm(false)}
+                        className="bg-red-500 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-red-600 transition"
+                    >
+                        ✕ Tutup Form
+                    </button>
+                )}
+            </div>
+
+            {/* 📝 Form Ajukan Kolaborasi */}
+            {showForm && (
+                <div className="bg-white rounded-2xl shadow-xl w-full max-w-6xl overflow-hidden">
+                    <div className="bg-gradient-to-r from-teal-500 to-cyan-600 p-8">
+                        <h1 className="text-3xl font-bold text-white">Ajukan Kolaborasi Proyek</h1>
+                    </div>
+                    <form onSubmit={handleSubmit} className="p-8 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                        <div className="md:col-span-1">
+                            <label htmlFor="judulProyek" className="block text-sm font-semibold text-gray-600 mb-2">Judul Proyek</label>
+                            <input type="text" name="judulProyek" value={formData.judulProyek} onChange={handleChange} required className="w-full p-3 bg-slate-50 border rounded-lg"/>
+                        </div>
+                        <div className="md:col-span-1">
+                            <label htmlFor="invitedStudent" className="block text-sm font-semibold text-gray-600 mb-2">Undang Mahasiswa</label>
+                            <select id="invitedStudent" value={selectedStudent} onChange={(e) => setSelectedStudent(e.target.value)} required className="w-full p-3 bg-slate-50 border rounded-lg">
+                                <option value="" disabled>-- Pilih Mahasiswa --</option>
+                                {students.map(student => (
+                                    <option key={student.userId} value={student.userId}>{student.name}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="md:col-span-2">
+                            <label htmlFor="deskripsiSingkat" className="block text-sm font-semibold text-gray-600 mb-2">Deskripsi Singkat</label>
+                            <textarea name="deskripsiSingkat" rows={3} value={formData.deskripsiSingkat} onChange={handleChange} required className="w-full p-3 bg-slate-50 border rounded-lg"/>
+                        </div>
+                        <div className="md:col-span-2">
+                            <label htmlFor="pesan" className="block text-sm font-semibold text-gray-600 mb-2">Pesan Detail (Opsional)</label>
+                            <textarea name="pesan" rows={4} value={formData.pesan} onChange={handleChange} className="w-full p-3 bg-slate-50 border rounded-lg"/>
+                        </div>
+                        <div className="md:col-span-2 flex justify-end pt-6">
+                            <button type="submit" className="bg-teal-500 text-white font-bold py-3 px-10 rounded-lg shadow-lg hover:bg-teal-600">Ajukan Kolaborasi</button>
+                        </div>
+                    </form>
+                </div>
+            )}
+
+            {/* 📋 Daftar Kolaborasi */}
+>>>>>>> cd61495 (sampai sini)
             <div className="bg-white p-6 sm:p-8 rounded-xl shadow-xl w-full max-w-6xl">
                 <h2 className="text-2xl font-bold text-slate-700 mb-6">Daftar Ajakan Kolaborasi</h2>
                 <div className="overflow-x-auto">
@@ -165,4 +233,8 @@ const Kolaborasi: React.FC = () => {
     );
 };
 
+<<<<<<< HEAD
 export default Kolaborasi;
+=======
+export default Kolaborasi;
+>>>>>>> cd61495 (sampai sini)

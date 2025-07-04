@@ -34,7 +34,12 @@ import PortfolioPage from './pages/lecturer/portofolio';
 // Industry Pages
 import IndustryDashboard from './pages/industry/Dashboard';
 import RequestCollaboration from './pages/industry/RequestCollaboration';
+<<<<<<< HEAD
 import CollaborationHistory from './pages/industry/CollaborationHistory';
+=======
+import FormKolaborasi from './pages/industry/FormKolaborasi';
+
+>>>>>>> cd61495 (sampai sini)
 
 
 // Admin Pages
@@ -84,7 +89,11 @@ function App() {
     <Route index element={<IndustryDashboard />} />
     
     {/* Halaman riwayat kolaborasi */}
+<<<<<<< HEAD
     <Route path="collaboration-history" element={<CollaborationHistory />} />
+=======
+   
+>>>>>>> cd61495 (sampai sini)
     
     {/* Halaman form untuk mengajukan kolaborasi */}
     <Route path="request-collaboration" element={<RequestCollaboration />} /> 
@@ -94,6 +103,10 @@ function App() {
     
     {/* Halaman untuk melihat detail portfolio mahasiswa */}
     <Route path="portofolio/:userId" element={<StudentPortfolioDetail />} />
+<<<<<<< HEAD
+=======
+     <Route path="kolaborasi/ajukan" element={<FormKolaborasi />} />
+>>>>>>> cd61495 (sampai sini)
 </Route>
 
           {/* Rute Admin */}

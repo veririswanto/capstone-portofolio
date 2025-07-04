@@ -11,6 +11,10 @@ const portfolioRoutes = require('./routes/portfolioRoutes');
 const studentRoutes = require('./routes/student'); // <-- 1. TAMBAHKAN IMPORT INI
 const collaborationRoutes = require('./routes/collaborationRoutes');
 const notificationRoutes = require('./routes/notificationRoutes'); 
+<<<<<<< HEAD
+=======
+const avatarRoutes = require('./routes/avatar');
+>>>>>>> cd61495 (sampai sini)
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,7 +33,14 @@ app.use('/api/portfolio', portfolioRoutes);
 app.use('/api/students', studentRoutes); 
 app.use('/api/kolaborasi', collaborationRoutes);
 app.use('/api/notifications', notificationRoutes);
+<<<<<<< HEAD
 
+=======
+app.use('/api', avatarRoutes);
+app.use('/api/kolaborasi', require('./routes/kolaborasi'));
+
+app.use('/uploads', express.static('uploads'));
+>>>>>>> cd61495 (sampai sini)
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
 });
